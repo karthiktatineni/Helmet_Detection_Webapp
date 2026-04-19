@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let API_BASE = import.meta.env.VITE_API_URL || '';
+let API_BASE = import.meta.env.VITE_API_URL || 'https://project.tatinenikarthik.online';
 
 // Auto-correct URL if someone forgot to add 'http://' or 'https://'
 if (API_BASE && !API_BASE.startsWith('http')) {
@@ -13,8 +13,11 @@ if (API_BASE.endsWith('/')) {
   API_BASE = API_BASE.slice(0, -1);
 }
 
+// Ensure no double slashes in the final baseURL string
+const normalizedBase = API_BASE ? `${API_BASE}/api/v1`.replace(/([^:]\/)\/+/g, "$1") : '/api/v1';
+
 const api = axios.create({
-  baseURL: API_BASE ? `${API_BASE}/api/v1` : '/api/v1',
+  baseURL: normalizedBase,
   timeout: 120000,
   headers: {
     'Content-Type': 'application/json',
