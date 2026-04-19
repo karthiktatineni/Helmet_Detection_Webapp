@@ -10,6 +10,9 @@ if (API_BASE && !API_BASE.startsWith('http')) {
 const api = axios.create({
   baseURL: `${API_BASE}/api/v1`,
   timeout: 120000,
+  headers: {
+    'ngrok-skip-browser-warning': 'true'
+  }
 });
 
 export const detectImage = (file, confidence = 0.5) => {
@@ -35,8 +38,8 @@ export const getDetectionById = (id) => api.get(`/history/${id}`);
 
 export const deleteDetection = (id) => api.delete(`/history/${id}`);
 
-export const getStats = () => axios.get(`${API_BASE}/api/v1/stats`);
+export const getStats = () => axios.get(`${API_BASE}/api/v1/stats`, { headers: { 'ngrok-skip-browser-warning': 'true' } });
 
-export const healthCheck = () => axios.get(`${API_BASE}/health`);
+export const healthCheck = () => axios.get(`${API_BASE}/health`, { headers: { 'ngrok-skip-browser-warning': 'true' } });
 
 export default api;
