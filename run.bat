@@ -16,9 +16,9 @@ start "Backend Server" cmd /k "cd /d ""%APP_DIR%"" && python -m backend.main"
 echo [2/3] Starting React Frontend...
 start "Frontend Server" cmd /k "cd /d ""%APP_DIR%frontend"" && npm run dev"
 
-:: Start Cloudflare Tunnel (Uses local config/cert in .cloudflared)
+:: Start Cloudflare Tunnel (Using project-specific tunnel_config.yml)
 echo [3/3] Starting Cloudflare Tunnel...
-start "Cloudflare Tunnel" cmd /k "cloudflared tunnel run"
+start "Cloudflare Tunnel" cmd /k "cloudflared tunnel --config tunnel_config.yml run"
 
 echo.
 echo ✅ Start scripts initiated!

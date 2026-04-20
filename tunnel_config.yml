@@ -1,0 +1,13 @@
+tunnel: c7035300-77fd-4a7d-8713-b0e10d3eb275
+credentials-file: C:\Users\karth\.cloudflared\c7035300-77fd-4a7d-8713-b0e10d3eb275.json
+
+ingress:
+  - hostname: project.tatinenikarthik.online
+    service: http://localhost:8000
+    originRequest:
+      noTLSVerify: true
+  - hostname: back.tatinenikarthik.online
+    service: http://localhost:8000
+    originRequest:
+      noTLSVerify: true
+  - service: http_status:404
