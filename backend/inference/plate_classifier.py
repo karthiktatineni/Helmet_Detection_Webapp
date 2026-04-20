@@ -41,7 +41,11 @@ class PlateClassifier:
             os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
             os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-            from tf_keras.models import model_from_json
+            try:
+                from tf_keras.models import model_from_json
+            except ImportError:
+                logger.warning("TensorFlow/tf-keras not installed. Plate classification will be disabled.")
+                return
 
             with open(self._model_json, 'r') as f:
                 self.model = model_from_json(f.read())

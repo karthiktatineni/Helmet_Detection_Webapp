@@ -5,9 +5,9 @@ python-multipart==0.0.9
 sqlalchemy==2.0.35
 aiosqlite==0.20.0
 loguru==0.7.2
-numpy==1.26.4
-opencv-python-headless>=4.13.0
-yagmail==0.15.293
-tf-keras==2.16.0
-tensorflow-cpu==2.16.2
 pydantic-settings==2.5.2
+yagmail==0.15.293
+ultralytics==8.3.8
+opencv-python-headless==4.10.0.84
+numpy==1.26.4
+pillow==10.4.0
