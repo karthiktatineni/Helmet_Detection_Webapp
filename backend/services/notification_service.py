@@ -19,7 +19,7 @@ def send_violation_email_sync(detection_id: str, violations: list, image_path: s
     try:
         yag = yagmail.SMTP(settings.SENDER_EMAIL, settings.SENDER_PASSWORD)
         
-        subject = f"⚠️ SHIELD AI Alert: Traffic Violation Detected [{detection_id}]"
+        subject = f"⚠️ SHIELD Alert: Traffic Violation Detected [{detection_id}]"
         
         # Build email body
         body = ["<h2>Traffic Violation Alert</h2>"]

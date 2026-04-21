@@ -46,7 +46,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Helmet & Triple Ride Detection API",
-    description="AI-powered traffic safety monitoring — upload images/videos for real-time violation detection",
+    description="Advanced traffic safety monitoring — upload images/videos for real-time violation detection",
     version="1.0.0",
     lifespan=lifespan,
     docs_url="/docs",

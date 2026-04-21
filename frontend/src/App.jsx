@@ -41,7 +41,7 @@ function App() {
             <div className="sidebar-logo-icon">
               <Shield size={22} />
             </div>
-            <span className="sidebar-logo-text">SHIELD AI</span>
+            <span className="sidebar-logo-text">SHIELD</span>
           </div>
 
           <nav className="sidebar-nav">

@@ -158,7 +158,7 @@ export default function DetectionPage({ showToast }) {
                   style={{ marginTop: '1.25rem', width: '100%', justifyContent: 'center', padding: '0.85rem', fontSize: '0.95rem' }}
                 >
                   {loading ? (
-                    <><div className="spinner" style={{ width: 20, height: 20, borderWidth: 2 }}></div> Running AI Pipeline...</>
+                    <><div className="spinner" style={{ width: 20, height: 20, borderWidth: 2 }}></div> Running Detection Pipeline...</>
                   ) : (
                     <><ShieldCheck size={20} /> Run Detection</>
                   )}
@@ -200,7 +200,7 @@ export default function DetectionPage({ showToast }) {
             <div className="glass-card">
               <div className="loading-overlay">
                 <div className="spinner"></div>
-                <div className="loading-text">Running AI Detection Pipeline...</div>
+                <div className="loading-text">Running Detection Pipeline...</div>
                 <div className="loading-subtext">Analyzing with YOLOv3 neural network — this may take 5-15 seconds</div>
               </div>
             </div>

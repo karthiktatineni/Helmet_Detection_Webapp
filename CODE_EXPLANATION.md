@@ -9,7 +9,7 @@ This document serves as a comprehensive guide to understanding every folder and 
 * **`README.md`**: The main presentation of the GitHub repository outlining how to setup, deploy, and understand the project.
 * **`requirements.txt`**: Python dependencies list used by the backend. We swapped `tensorflow` with `tensorflow-cpu` to ensure extremely fast cloud deployment speeds.
 * **`run.bat`**: A convenient script for Windows users that boots up both the Vite Frontend and Python Backend simultaneously with a single double-click.
-* **`.gitignore`**: Prevents Git from tracking or uploading huge 500MB+ AI models, sensitive emails/passwords from `.env`, and unneeded build files (`node_modules/`, `__pycache__`).
+* **`.gitignore`**: Prevents Git from tracking or uploading huge 500MB+ ML models, sensitive emails/passwords from `.env`, and unneeded build files (`node_modules/`, `__pycache__`).
 * **`.env` (not tracked in Git)**: Central configuration file holding the database paths, model paths, API settings, and email setup (SENDER_EMAIL, RECEIVER_EMAIL).
 * **`helmet_detection_system_design.md`**: The original system planning document outlining the overall goals and structure.
 
@@ -35,7 +35,7 @@ The 4 main screens of the UI:
 * **`DashboardPage.jsx`**: The landing page displaying total violations, graphs, and the UI hero banner.
 * **`DetectionPage.jsx`**: Allows the user to physically drag-and-drop Image/Video files, configure confidence sliders, and display annotated boundary box outputs.
 * **`HistoryPage.jsx`**: Shows the database history of all past runs with search/filter mechanics.
-* **`AboutPage.jsx`**: Displays info about the AI tech stack.
+* **`AboutPage.jsx`**: Displays info about the detection technology stack.
 
 ### `/frontend/src/services/`
 * **`api.js`**: Contains all Axios `GET`/`POST` requests formatting the browser calls into proper shapes for the Backend API. Includes the `/health` pings.
@@ -55,12 +55,12 @@ This acts as the main Engine of the whole project built on **FastAPI (Python)**.
 ### `/backend/api/`
 The physical URL paths exposed by the server.
 * **`health.py`**: Houses `/health` responding with "ok" to keep uptime bots happy, and `/api/v1/stats` to aggregate numbers for the frontend Dashboard.
-* **`detection.py`**: Houses `/api/v1/detect/image` and `/api/v1/detect/video`. These intercept dropped files from React, calculate their sizes/authenticity, initiate background emails, and invoke the AI Pipelines to scan the media.
+* **`detection.py`**: Houses `/api/v1/detect/image` and `/api/v1/detect/video`. These intercept dropped files from React, calculate their sizes/authenticity, initiate background emails, and invoke the Detection Pipelines to scan the media.
 * **`history.py`**: Connects UI History page requests to backend database reads/deletes.
 
 ### `/backend/services/`
 The logic bridging endpoints to the inner systems.
-* **`detection_service.py`**: Maps and manages the extremely complex loop of: finding a person -> sending them to the helmet AI -> calculating violation logic -> drawing boxes on the image -> saving image to the internal disk.
+* **`detection_service.py`**: Maps and manages the extremely complex loop of: finding a person -> sending them to the helmet detector -> calculating violation logic -> drawing boxes on the image -> saving image to the internal disk.
 * **`notification_service.py`**: Intercepts triggered violations and logs in to `yagmail` using your `.env` SMTP login to dispatch alert emails cleanly.
 
 ### `/backend/inference/`
@@ -86,6 +86,6 @@ Where everything gets saved for History.
 * **`/models/`**: The local storage location of all your `.weights`, `.cfg`, and `.h5` files allowing `.gitignore` to easily stop GitHub from stealing 1GB of upload space.
 * **`/data/`**: Runtime locations that act as the internal Hard-Drive for the backend application while it is booted up.
   * **`data/uploads/`**: Temporarily stores raw incoming Mp4s / JPGs from React.
-  * **`data/outputs/`**: Holds newly drawn AI box-detected images generated before emailing them.
+  * **`data/outputs/`**: Holds newly drawn annotated images generated before emailing them.
   * **`data/helmet_detection.db`**: The SQLite raw file containing your active history.
 * **`/logs/`**: Keeps a running timeline of developer server bugs.

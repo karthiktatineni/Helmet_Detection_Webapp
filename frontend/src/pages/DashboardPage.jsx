@@ -38,7 +38,7 @@ export default function DashboardPage({ showToast }) {
     <div>
       <div className="page-header">
         <h1>🛡️ Traffic Safety Dashboard</h1>
-        <p>AI-powered helmet detection & triple riding monitoring</p>
+        <p>Advanced helmet detection & triple riding monitoring</p>
       </div>
 
       {/* Stats */}
@@ -91,7 +91,7 @@ export default function DashboardPage({ showToast }) {
             </div>
             <div style={{ flex: 1 }}>
               <h3 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.15rem' }}>Upload & Detect</h3>
-              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Upload an image or video for AI analysis</p>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Upload an image or video for automated analysis</p>
             </div>
             <ArrowRight size={20} style={{ color: 'var(--text-muted)' }} />
           </div>

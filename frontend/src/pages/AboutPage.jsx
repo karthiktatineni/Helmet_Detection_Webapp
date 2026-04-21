@@ -5,7 +5,7 @@ export default function AboutPage() {
     <div>
       <div className="page-header">
         <h1>ℹ️ About This System</h1>
-        <p>AI-powered helmet detection & traffic safety monitoring</p>
+        <p>Advanced Computer Vision helmet detection & traffic safety monitoring</p>
       </div>
 
       {/* Overview */}
@@ -15,7 +15,7 @@ export default function AboutPage() {
           This system uses deep learning models to detect traffic safety violations
           from images and videos. It identifies motorcycles and riders, checks for helmet
           compliance, detects triple riding violations, and performs number plate recognition
-          on violating vehicles. The system processes uploads through a 3-stage AI pipeline
+          on violating vehicles. The system processes uploads through a 3-stage detection pipeline
           and generates annotated results with bounding boxes and violation alerts.
         </p>
       </div>

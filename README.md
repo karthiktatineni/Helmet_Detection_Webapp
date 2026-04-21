@@ -1,10 +1,10 @@
-# 🏍️ SHIELD AI: Helmet & Triple Ride Detection System
+# 🏍️ SHIELD: Helmet & Triple Ride Detection System
 
 A modern, full-stack web application designed to automatically detect vehicle safety violations—specifically missing helmets and triple riding—from both images and video footage.
 
 ## 🌟 Key Features
 
-* **3-Stage AI Inference Pipeline**:
+* **3-Stage Detection Inference Pipeline**:
   1. **Bike/Person Detection:** YOLOv3 standard model filtering for persons and motorbikes.
   2. **Helmet Detection:** Custom-trained YOLOv3 model detecting safety helmets.
   3. **License Plate Capture:** CNN-based 20-class demo categorizer triggering upon rule violation.
