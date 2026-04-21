@@ -5,7 +5,6 @@ import DashboardPage from './pages/DashboardPage';
 import DetectionPage from './pages/DetectionPage';
 import HistoryPage from './pages/HistoryPage';
 import AboutPage from './pages/AboutPage';
-import { healthCheck } from './services/api';
 
 function App() {
   const [toast, setToast] = useState(null);
@@ -15,15 +14,6 @@ function App() {
     setTimeout(() => setToast(null), 4000);
   }, []);
 
-  // Keep-alive mechanism to prevent backend from sleeping (e.g. Render Free Tier)
-  useEffect(() => {
-    // Ping every 4.5 minutes (270,000 ms) while the page is open
-    const interval = setInterval(() => {
-      healthCheck().catch(err => console.debug("Keep-alive ping failed:", err));
-    }, 270000);
-    
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <BrowserRouter>
